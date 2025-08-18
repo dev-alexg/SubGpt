@@ -4,7 +4,8 @@ FROM php:8.2-fpm-alpine
 RUN apk add --no-cache \
     nginx supervisor bash git curl zip unzip icu-dev \
     libpng-dev libjpeg-turbo-dev libwebp-dev libzip-dev \
-    oniguruma-dev libxml2-dev
+    oniguruma-dev libxml2-dev \
+    postgresql-dev postgresql-libs
 
 RUN docker-php-ext-configure gd --with-jpeg --with-webp \
  && docker-php-ext-install -j$(nproc) \
